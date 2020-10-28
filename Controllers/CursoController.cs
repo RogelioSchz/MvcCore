@@ -1,106 +1,159 @@
 using System;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using MvcProject.Models;
 
 namespace MvcProject.Controllers
 {
     public class CursoController : Controller
     {
-        public EscuelaContext _context { get; set; }
+        private readonly EscuelaContext _context;
+
         public CursoController(EscuelaContext context)
         {
             _context = context;
         }
-        public IActionResult MultiCurso()
+
+        // GET: Curso
+        public async Task<IActionResult> Index()
         {
-            ViewBag.Fecha = DateTime.Now;
-            return View(_context.Cursos);
+            var escuelaContext = _context.Cursos.Include(c => c.Escuela);
+            return View(await escuelaContext.ToListAsync());
         }
 
-        [Route("Curso/{cursoId}")]
-        public IActionResult Index(string cursoId)
+        // GET: Curso/Details/5
+        public async Task<IActionResult> Details(string id)
         {
-            if (!string.IsNullOrWhiteSpace(cursoId))
+            if (id == null)
             {
-                var curso = from cur in _context.Cursos
-                            where cur.Id == cursoId
-                            select cur;
-                return View(curso.FirstOrDefault());
+                return NotFound();
             }
-            else
+
+            var curso = await _context.Cursos
+                .Include(c => c.Escuela)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (curso == null)
             {
-                return View("MultiCurso", _context.Cursos);
+                return NotFound();
             }
+
+            return View(curso);
         }
+
+        // GET: Curso/Create
         public IActionResult Create()
         {
+            ViewData["EscuelaId"] = new SelectList(_context.Escuelas, "Id", "Id");
             return View();
         }
+
+        // POST: Curso/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public IActionResult Create(Curso curso)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("Jornada,Dirección,EscuelaId,Nombre,Id")] Curso curso)
         {
             if (ModelState.IsValid)
             {
-                var escuela = _context.Escuelas.FirstOrDefault();
-                curso.Id = Guid.NewGuid().ToString();
-                curso.EscuelaId = escuela.Id;
-                _context.Cursos.Add(curso);
-                _context.SaveChanges();
-                return RedirectToAction("Index", new { cursoId = curso.Id });
+                _context.Add(curso);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
             }
-            else
+            ViewData["EscuelaId"] = new SelectList(_context.Escuelas, "Id", "Id", curso.EscuelaId);
+            return View(curso);
+        }
+
+        // GET: Curso/Edit/5
+        public async Task<IActionResult> Edit(string id)
+        {
+            if (id == null)
             {
-                return View(curso);
+                return NotFound();
             }
 
-        }
-        public IActionResult Update(string cursoId)
-        {
-            if (!string.IsNullOrWhiteSpace(cursoId))
+            var curso = await _context.Cursos.FindAsync(id);
+            if (curso == null)
             {
-                var curso = from cur in _context.Cursos
-                            where cur.Id == cursoId
-                            select cur;
-                return View(curso.FirstOrDefault());
+                return NotFound();
             }
-            else
-            {
-                return View("MultiCurso", _context.Cursos);
-            }
+            ViewData["EscuelaId"] = new SelectList(_context.Escuelas, "Id", "Id", curso.EscuelaId);
+            return View(curso);
         }
+
+        // POST: Curso/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public IActionResult Update(Curso curso)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(string id, [Bind("Jornada,Dirección,EscuelaId,Nombre,Id")] Curso curso)
         {
+            if (id != curso.Id)
+            {
+                return NotFound();
+            }
+
             if (ModelState.IsValid)
             {
-                var cursoUpdate = _context.Cursos.Where(e => e.Id == curso.Id).FirstOrDefault();
-                cursoUpdate.Dirección = curso.Dirección;
-                cursoUpdate.Nombre = curso.Nombre;
-                cursoUpdate.Jornada = curso.Jornada;
-                _context.SaveChanges();
-                return RedirectToAction("Index", new { CursoId = curso.Id });
+                try
+                {
+                    _context.Update(curso);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!CursoExists(curso.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
             }
-            else
+            ViewData["EscuelaId"] = new SelectList(_context.Escuelas, "Id", "Id", curso.EscuelaId);
+            return View(curso);
+        }
+
+        // GET: Curso/Delete/5
+        public async Task<IActionResult> Delete(string id)
+        {
+            if (id == null)
             {
-                return View(curso);
+                return NotFound();
             }
 
+            var curso = await _context.Cursos
+                .Include(c => c.Escuela)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (curso == null)
+            {
+                return NotFound();
+            }
+
+            return View(curso);
         }
-        public IActionResult Delete(string cursoId)
+
+        // POST: Curso/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            if (!string.IsNullOrWhiteSpace(cursoId))
-            {
-                var curso = _context.Cursos.Where(c => c.Id == cursoId).FirstOrDefault();
-                _context.Cursos.Remove(curso);
-                _context.SaveChanges();
-                return RedirectToAction("MultiCurso");
-            }
-            else
-            {
-                return View("MultiCurso", _context.Cursos);
-            }
+            var curso = await _context.Cursos.FindAsync(id);
+            _context.Cursos.Remove(curso);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        private bool CursoExists(string id)
+        {
+            return _context.Cursos.Any(e => e.Id == id);
         }
     }
 }
