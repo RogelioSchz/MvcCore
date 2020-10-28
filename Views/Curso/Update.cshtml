@@ -5,24 +5,27 @@
 }
 <div asp-validation-summary="All"></div>
 <form method="POST" asp-controller="Curso" asp-action="Update">
-        <div>
+    <div>
         <label asp-for="Id"></label>
-        <input asp-for="Id"/>
+        <input asp-for="Id" />
     </div>
     <div>
         <label asp-for="Nombre"></label>
-        <input asp-for="Nombre"/>
+        <input asp-for="Nombre" />
+        <span asp-validation-for="Nombre" class="text-danger"></span>
     </div>
     <div>
         <label asp-for="Dirección"></label>
-        <input asp-for="Dirección"/>
+        <input asp-for="Dirección" />
+        <span asp-validation-for="Dirección" class="text-danger"></span>
     </div>
     <div>
         <label asp-for="Jornada"></label>
-        
+
         @Html.DropDownList("Jornada", Html.GetEnumSelectList<TiposJornada>(),
-            "Seleccione jornada", new {@class = "form-control"})
+        "Seleccione jornada", new {@class = "form-control"})
+        <span asp-validation-for="Jornada" class="text-danger"></span>
     </div>
 
-    <input type="submit"/>
+    <input type="submit" />
 </form>

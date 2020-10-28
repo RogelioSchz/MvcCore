@@ -68,11 +68,12 @@ namespace MvcProject.Models
                         new Curso(){Id = Guid.NewGuid().ToString(),
                         Nombre = "101",
                         Jornada = TiposJornada.Mañana,
-                        EscuelaId = escuela.Id },
-                        new Curso() {Id = Guid.NewGuid().ToString(), Nombre = "201", Jornada = TiposJornada.Mañana, EscuelaId = escuela.Id},
-                        new Curso{Id = Guid.NewGuid().ToString(), Nombre = "301", Jornada = TiposJornada.Mañana, EscuelaId = escuela.Id},
-                        new Curso(){Id = Guid.NewGuid().ToString(), Nombre = "401", Jornada = TiposJornada.Tarde, EscuelaId = escuela.Id },
-                        new Curso() {Id = Guid.NewGuid().ToString(), Nombre = "501", Jornada = TiposJornada.Tarde, EscuelaId = escuela.Id},
+                        EscuelaId = escuela.Id,
+                        Dirección = "Av México #302" },
+                        new Curso() {Id = Guid.NewGuid().ToString(), Nombre = "201", Jornada = TiposJornada.Mañana, EscuelaId = escuela.Id, Dirección = "Av México #302"},
+                        new Curso{Id = Guid.NewGuid().ToString(), Nombre = "301", Jornada = TiposJornada.Mañana, EscuelaId = escuela.Id, Dirección = "Av México #302"},
+                        new Curso(){Id = Guid.NewGuid().ToString(), Nombre = "401", Jornada = TiposJornada.Tarde, EscuelaId = escuela.Id, Dirección = "Av México #302" },
+                        new Curso() {Id = Guid.NewGuid().ToString(), Nombre = "501", Jornada = TiposJornada.Tarde, EscuelaId = escuela.Id, Dirección = "Av México #302"},
             };
         }
         private List<Alumno> CargarAlumnos(List<Curso> cursos)

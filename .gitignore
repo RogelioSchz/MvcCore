@@ -1,2 +1,8 @@
-/bin
-/obj
+bin
+obj
+bin/Debug/netcoreapp3.1/MvcProject.dll
+bin/Debug/netcoreapp3.1/MvcProject.dll
+bin/Debug/netcoreapp3.1/MvcProject.dll
+bin/Debug/netcoreapp3.1/MvcProject.dll
+obj/Debug/netcoreapp3.1/MvcProject.dll
+obj/Debug/netcoreapp3.1/MvcProject.dll

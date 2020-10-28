@@ -5,17 +5,18 @@
 }
 <div asp-validation-summary="All"></div>
 <form method="POST" asp-controller="Asignatura" asp-action="Update">
-        <div>
+    <div>
         <label asp-for="Id"></label>
-        <input asp-for="Id"/>
+        <input asp-for="Id" />
     </div>
     <div>
         <label asp-for="Nombre"></label>
-        <input asp-for="Nombre"/>
+        <input asp-for="Nombre" />
+        <span asp-validation-for="Nombre" class="text-danger"></span>
     </div>
     <div>
         <label asp-for="CursoId"></label>
-        <input asp-for="CursoId"/>
+        <input asp-for="CursoId" />
     </div>
-    <input type="submit"/>
+    <input type="submit" />
 </form>
