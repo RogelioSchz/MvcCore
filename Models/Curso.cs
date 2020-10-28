@@ -17,7 +17,7 @@ namespace MvcProject.Models
         public string EscuelaId { get; set; }
         public Escuela Escuela { get; set; }
         [Required(ErrorMessage = "El nombre del curso es requerido")]
-        [StringLength(5)]
+        [StringLength(50)]
         public override string Nombre { get; set; }
 
     }

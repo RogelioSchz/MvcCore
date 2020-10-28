@@ -26,8 +26,9 @@ namespace MvcProject
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            var connectionString = ConfigurationExtensions.GetConnectionString(this.Configuration, "DefaultConnectionString" );
             services.AddDbContext<EscuelaContext>(
-                options => options.UseInMemoryDatabase(databaseName: "testDatabase")
+                options => options.UseSqlServer(connectionString)
             );
         }
 

@@ -10,7 +10,7 @@ namespace MvcProject.Models
         public Curso Curso { get; set; }
         List<Evaluación> Evaluaciones { get; set; }
         [Required(ErrorMessage = "El nombre de la asinatura es requerido")]
-        [StringLength(5)]
+        [StringLength(50)]
         public override string Nombre { get; set; }
     }
 }
