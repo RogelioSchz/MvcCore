@@ -86,3 +86,11 @@ C:\Users\sisgsanchez\Desktop\Core\MvcProject\bin\Debug\netcoreapp3.1\runtimes\wi
 C:\Users\sisgsanchez\Desktop\Core\MvcProject\obj\Debug\netcoreapp3.1\Razor\Views\Curso\Index.cshtml.g.cs
 C:\Users\sisgsanchez\Desktop\Core\MvcProject\obj\Debug\netcoreapp3.1\Razor\Views\Curso\MultiCurso.cshtml.g.cs
 C:\Users\sisgsanchez\Desktop\Core\MvcProject\obj\Debug\netcoreapp3.1\Razor\Views\Curso\Create.cshtml.g.cs
+C:\Users\sisgsanchez\Desktop\Core\MvcProject\obj\Debug\netcoreapp3.1\Razor\Views\Curso\Update.cshtml.g.cs
+C:\Users\sisgsanchez\Desktop\Core\MvcProject\obj\Debug\netcoreapp3.1\Razor\Views\Shared\CursosPartial.cshtml.g.cs
+C:\Users\sisgsanchez\Desktop\Core\MvcProject\obj\Debug\netcoreapp3.1\Razor\Views\Shared\AsignaturasPartial.cshtml.g.cs
+C:\Users\sisgsanchez\Desktop\Core\MvcProject\obj\Debug\netcoreapp3.1\Razor\Views\Asignatura\Update.cshtml.g.cs
+C:\Users\sisgsanchez\Desktop\Core\MvcProject\obj\Debug\netcoreapp3.1\Razor\Views\Asignatura\Create.cshtml.g.cs
+C:\Users\sisgsanchez\Desktop\Core\MvcProject\obj\Debug\netcoreapp3.1\Razor\Views\Shared\AlumnosPartial.cshtml.g.cs
+C:\Users\sisgsanchez\Desktop\Core\MvcProject\obj\Debug\netcoreapp3.1\Razor\Views\Alumno\Update.cshtml.g.cs
+C:\Users\sisgsanchez\Desktop\Core\MvcProject\obj\Debug\netcoreapp3.1\Razor\Views\Alumno\Create.cshtml.g.cs

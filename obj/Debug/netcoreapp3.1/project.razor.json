@@ -14422,8 +14422,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\sisgsanchez\\Desktop\\Core\\MvcProject\\Views\\Asignatura\\Update.cshtml",
+      "TargetPath": "Views\\Asignatura\\Update.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\sisgsanchez\\Desktop\\Core\\MvcProject\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\sisgsanchez\\Desktop\\Core\\MvcProject\\Views\\Alumno\\Update.cshtml",
+      "TargetPath": "Views\\Alumno\\Update.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -14432,8 +14442,23 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\sisgsanchez\\Desktop\\Core\\MvcProject\\Views\\Shared\\AsignaturasPartial.cshtml",
+      "TargetPath": "Views\\Shared\\AsignaturasPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\sisgsanchez\\Desktop\\Core\\MvcProject\\Views\\Alumno\\Create.cshtml",
+      "TargetPath": "Views\\Alumno\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\sisgsanchez\\Desktop\\Core\\MvcProject\\Views\\Escuela\\Index.cshtml",
       "TargetPath": "Views\\Escuela\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\sisgsanchez\\Desktop\\Core\\MvcProject\\Views\\Shared\\CursosPartial.cshtml",
+      "TargetPath": "Views\\Shared\\CursosPartial.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -14452,6 +14477,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\sisgsanchez\\Desktop\\Core\\MvcProject\\Views\\Shared\\AlumnosPartial.cshtml",
+      "TargetPath": "Views\\Shared\\AlumnosPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\sisgsanchez\\Desktop\\Core\\MvcProject\\Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
@@ -14462,6 +14492,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\sisgsanchez\\Desktop\\Core\\MvcProject\\Views\\Asignatura\\Create.cshtml",
+      "TargetPath": "Views\\Asignatura\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\sisgsanchez\\Desktop\\Core\\MvcProject\\Views\\Curso\\MultiCurso.cshtml",
       "TargetPath": "Views\\Curso\\MultiCurso.cshtml",
       "FileKind": "mvc"
@@ -14469,6 +14504,11 @@
     {
       "FilePath": "c:\\Users\\sisgsanchez\\Desktop\\Core\\MvcProject\\Views\\Shared\\Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\sisgsanchez\\Desktop\\Core\\MvcProject\\Views\\Curso\\Update.cshtml",
+      "TargetPath": "Views\\Curso\\Update.cshtml",
       "FileKind": "mvc"
     },
     {

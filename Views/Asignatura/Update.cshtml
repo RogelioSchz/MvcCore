@@ -1,0 +1,21 @@
+@model Asignatura
+@{
+    ViewData["Title"] = "Edición de asignatura";
+
+}
+<div asp-validation-summary="All"></div>
+<form method="POST" asp-controller="Asignatura" asp-action="Update">
+        <div>
+        <label asp-for="Id"></label>
+        <input asp-for="Id"/>
+    </div>
+    <div>
+        <label asp-for="Nombre"></label>
+        <input asp-for="Nombre"/>
+    </div>
+    <div>
+        <label asp-for="CursoId"></label>
+        <input asp-for="CursoId"/>
+    </div>
+    <input type="submit"/>
+</form>

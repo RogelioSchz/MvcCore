@@ -1,10 +1,14 @@
 @model Curso
 @{
-    ViewData["Title"] = "Creacion de Curso";
+    ViewData["Title"] = "Edición de Curso";
 
 }
 <div asp-validation-summary="All"></div>
-<form method="POST">
+<form method="POST" asp-controller="Curso" asp-action="Update">
+        <div>
+        <label asp-for="Id"></label>
+        <input asp-for="Id"/>
+    </div>
     <div>
         <label asp-for="Nombre"></label>
         <input asp-for="Nombre"/>

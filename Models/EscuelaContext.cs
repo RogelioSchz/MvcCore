@@ -100,7 +100,8 @@ namespace MvcProject.Models
                                select new Alumno
                                {
                                    CursoId = curso.Id,
-                                   Nombre = $"{n1} {n2} {a1}"
+                                   Nombre = $"{n1} {n2} {a1}",
+                                   Id = Guid.NewGuid().ToString()
                                };
 
             return listaAlumnos.OrderBy((al) => al.Id).Take(cantidad).ToList();
