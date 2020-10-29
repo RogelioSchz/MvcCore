@@ -47,7 +47,7 @@ namespace MvcProject.Controllers
         // GET: Curso/Create
         public IActionResult Create()
         {
-            ViewData["EscuelaId"] = new SelectList(_context.Escuelas, "Id", "Id");
+            ViewData["EscuelaId"] = new SelectList(_context.Escuelas, "Id", "Nombre");
             return View();
         }
 
@@ -56,10 +56,11 @@ namespace MvcProject.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Jornada,Dirección,EscuelaId,Nombre,Id")] Curso curso)
+        public async Task<IActionResult> Create([Bind("Jornada,Dirección,EscuelaId,Nombre")] Curso curso)
         {
             if (ModelState.IsValid)
             {
+                curso.Id = Guid.NewGuid().ToString();
                 _context.Add(curso);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

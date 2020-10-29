@@ -56,10 +56,11 @@ namespace MvcProject.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CursoId,Nombre,Id")] Asignatura asignatura)
+        public async Task<IActionResult> Create([Bind("CursoId,Nombre")] Asignatura asignatura)
         {
             if (ModelState.IsValid)
             {
+                asignatura.Id = Guid.NewGuid().ToString();
                 _context.Add(asignatura);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

@@ -1,24 +1,26 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace MvcProject.Models
 {
-    public class Escuela:ObjetoEscuelaBase
+    public class Escuela : ObjetoEscuelaBase
     {
+        [Required(ErrorMessage = "Selecciona un año de creación")]
         public int AñoDeCreación { get; set; }
-
+        [Required(ErrorMessage = "Selecciona un país")]
         public string Pais { get; set; }
         public string Ciudad { get; set; }
 
         public string Dirección { get; set; }
-
+        [Required(ErrorMessage = "Selecciona un tipo escuela")]
         public TiposEscuela TipoEscuela { get; set; }
         public List<Curso> Cursos { get; set; }
 
         public Escuela(string nombre, int año) => (Nombre, AñoDeCreación) = (nombre, año);
 
-        public Escuela(string nombre, int año, 
-                       TiposEscuela tipo, 
+        public Escuela(string nombre, int año,
+                       TiposEscuela tipo,
                        string pais = "", string ciudad = "") : base()
         {
             (Nombre, AñoDeCreación) = (nombre, año);
@@ -32,7 +34,7 @@ namespace MvcProject.Models
         }
         public Escuela()
         {
-            
+
         }
 
     }
